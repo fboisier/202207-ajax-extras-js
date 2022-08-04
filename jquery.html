@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY</title>
+</head>
+
+<body>
+    <div>
+        <p class="color">darkorchid</p>
+        <p class="color">darkslategrey</p>
+        <p class="color">lightgrey</p>
+        <p class="color">midnightblue</p>
+    </div>
+
+    <button id="btn">Aplicar colores</button>
+
+    <button dato="1">ALGO</button>
+    <button dato="2">ALGO</button>
+    <button dato="3">ALGO</button>
+    <button dato="4" otracosa="ALGO">ALGO</button>
+    <button dato="5">ALGO</button>
+    <button dato="6">ALGO</button>
+    <button dato="7">ALGO</button>
+    <button dato="8">ALGO</button>
+    <button dato="9">ALGO</button>
+
+    <button id="mostrar" dato="MOSTRAR">MOSTRAR</button>
+    <button id="ocultar" dato="OCULTAR">OCUTAR</button>
+    <button id="alternar" dato="ALTERNAR">ALTERNAR</button>
+
+    <input type="text" placeholder="escriba algo">
+    <input type="text" placeholder="escriba otra cosa">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $('#mostrar').click(function() {
+            $('div').slideDown(5000, function() {
+                console.log("TERMINE!!!!")
+                $('button[dato=4]').trigger('click');
+                $('button[dato=4]').attr('otracosa', 'CAMBIADO!!!!!!');
+            });
+        });
+
+        $('#ocultar').click(function() {
+            $('div').slideUp();
+        });
+
+        $('#alternar').click(function() {
+            $('p').fadeToggle();
+        });
+
+
+        $('#btn').on('mouseover', function() {
+            $('.color').each(function() {
+                $(this).css('color', $(this).text());
+            });
+        });
+
+        $('#btn').on('mouseout', function() {
+            $('.color').css('color', 'black');
+        });
+
+
+
+        // var btns = document.querySelectorAll("button");
+
+        // for (var i = 0; i < btns.length; i++) {
+        //     btns[i].addEventListener("click",
+        //         function() {
+        //             alert("Button clicked!");
+        //         });
+        // }
+
+        $('button').click(function() {
+            var dato = $(this).attr('dato');
+            console.log("Button clicked! CUAL? el siguiente: " + dato);
+
+            // $(this).attr('dato', 'PANCHO');
+        });
+
+        $('input').change(function() {
+            console.log($(this).val());
+
+            if ($(this).val() == '123456') {
+                alert('oye, esta clave es insegura!!!');
+                $(this).val('GGGGG');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLICK</title>
+</head>
+
+<body>
+    <p class="color">darkorchid</p>
+    <p class="color">darkslategrey</p>
+    <p class="color">maroon</p>
+    <p class="color">midnightblue</p>
+
+    <button id="btn">Aplicar colores</button>
+
+    <script>
+        document.getElementById('btn').addEventListener('mouseover', applyColors);
+
+        var colors = document.querySelectorAll(".color");
+
+        function applyColors() {
+            for (const parrafo of colors) {
+                parrafo.style.color = parrafo.innerText;
+            }
+        }
+
+        document.getElementById('btn').addEventListener('mouseout', function() {
+            for (const parrafo of colors) {
+                parrafo.style.color = 'black';
+            }
+        });
+    </script>
+</body>
+
+</html>
